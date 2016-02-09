@@ -4,6 +4,10 @@ $smallHeight:  "screen and (max-height: 540px)";
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background: #fff;
   color: #332D60;
@@ -17,13 +21,6 @@ body {
   line-height: 25px;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
-
-  @media #{$smallHeight} {
-    flex-direction: column;
-    background-image: linear-gradient(#F8B9BE 0%, #F8A2B4 100%);
-    align-items: center;
-    justify-content: center;
-  }
 }
 
 h1 {
@@ -73,10 +70,6 @@ a.nav-link {
   justify-content: center;
   align-items: center;
 
-  @media #{$smallHeight} {
-    background: none;
-  }
-
   img {
     flex: none;
     z-index: 1;
@@ -88,12 +81,6 @@ a.nav-link {
     display: block;
     position: relative;
     margin-top: 40px;
-    transition: all 500ms ease-in-out;
-
-    &:hover {
-      transform: translateY(-20px);
-      transition: all 400ms ease-in-out;
-    }
   }
 }
 
@@ -181,4 +168,81 @@ a.nav-link {
     transform: rotateZ(315deg);
     -webkit-transform: rotateZ(315deg);
   }
+}
+
+// animation hover.css
+/* Bob */
+@-webkit-keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+  }
+}
+
+@-webkit-keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+  }
+}
+
+.hover-bob {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hover-bob, .hover-bob, .hover-bob {
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
 }
